@@ -1,0 +1,17 @@
+﻿<Window x:Class="WPF_TextBlocK_Rolling.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_TextBlocK_Rolling"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBox x:Name="inputText" Text="여기에 롤링 텍스트를 입력하세요."  FontSize="24" />
+            <Canvas Grid.Row="1" x:Name="canvas">
+                <TextBlock x:Name="rollingText" Text="{Binding Text, ElementName=inputText}" FontSize="24" Canvas.Left="0" SizeChanged="rollingText_SizeChanged"/>
+            </Canvas>
+        </StackPanel>
+    </Grid>
+</Window>
