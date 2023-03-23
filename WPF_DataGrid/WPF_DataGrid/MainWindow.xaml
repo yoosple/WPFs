@@ -1,0 +1,29 @@
+﻿<Window x:Class="WPF_DataGrid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_DataGrid"
+        xmlns:vm="clr-namespace:WPF_DataGrid.ViewModels"
+        mc:Ignorable="d"
+        Title="DataGridBindingExample" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:VMEmployee/>
+    </Window.DataContext>
+    <Grid>
+        <DataGrid 
+            HorizontalScrollBarVisibility="Auto" 
+            ScrollViewer.CanContentScroll="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            AutoGenerateColumns ="False"
+            CanUserAddRows="False"
+            ItemsSource="{Binding EmployeeLists}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="이름" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="부서" Binding="{Binding Department}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
